@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алпысбаев Дамир | Веб-әзірлеуші & Fullstack Developer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme scroll-layout">
+
+    <!-- Interactive Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Glowing Background Ambient Orbs (Shifting positions via CSS) -->
+    <div class="glow-orb orb-mint"></div>
+    <div class="glow-orb orb-gold"></div>
+    <div class="glow-orb orb-purple"></div>
+    <div class="glow-orb orb-blue"></div>
+
+    <!-- Floating Tech Shapes in Background -->
+    <div class="tech-shape shape-1"></div>
+    <div class="tech-shape shape-2"></div>
+    <div class="tech-shape shape-3"></div>
+
+    <!-- Header / Navigation -->
+    <header class="main-header glass-panel">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-d">D</span><span class="logo-a">A</span>
+                <span class="logo-dot">.</span>DEV
+            </div>
+            
+            <!-- Desktop Nav Menu with glowing sliding line -->
+            <nav class="nav-menu">
+                <a href="#cover" class="nav-link active" data-kz="Мұқаба" data-ru="Обложка">Обложка</a>
+                <a href="#about" class="nav-link" data-kz="Мен туралы" data-ru="О себе">О себе</a>
+                <a href="#problems" class="nav-link" data-kz="Мәселе" data-ru="Проблема">Проблема</a>
+                <a href="#solution" class="nav-link" data-kz="Шешім" data-ru="Решение">Решение</a>
+                <a href="#pricing" class="nav-link" data-kz="Бағалар" data-ru="Цены">Цены</a>
+                <a href="#portfolio" class="nav-link" data-kz="Портфолио" data-ru="Мои работы">Мои работы</a>
+                <a href="#process" class="nav-link" data-kz="Процесс" data-ru="Процесс">Процесс</a>
+                <a href="#cta" class="nav-link" data-kz="Байланыс" data-ru="Контакты">Контакты</a>
+                <div class="nav-indicator"></div>
+            </nav>
+
+            <div class="controls-group">
+                <!-- Mode Toggle: Scroll vs Slide Deck -->
+                <button id="view-mode-toggle" class="control-btn glass-btn" title="Ауыстыру / Переключить режим">
+                    <i class="ti ti-presentation"></i>
+                    <span class="btn-text" data-kz="Презентация" data-ru="Презентация">Презентация</span>
+                </button>
+
+                <!-- Bilingual Switcher -->
+                <div class="lang-switch-container glass-panel">
+                    <button class="lang-btn active" data-lang="kz">ҚАЗ</button>
+                    <button class="lang-btn" data-lang="ru">РУС</button>
+                    <div class="lang-slider"></div>
+                </div>
+
+                <!-- Responsive Mobile Menu Trigger (Hamburger) -->
+                <button class="mobile-nav-toggle glass-btn" aria-label="Toggle Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="mobile-drawer-overlay"></div>
+    <div class="mobile-drawer glass-panel">
+        <div class="drawer-header">
+            <div class="logo">
+                <span class="logo-d">D</span><span class="logo-a">A</span><span class="logo-dot">.</span>DEV
+            </div>
+            <button class="close-drawer-btn"><i class="ti ti-x"></i></button>
+        </div>
+        <nav class="mobile-drawer-nav">
+            <a href="#cover" class="drawer-link" style="--i: 1;" data-kz="Мұқаба" data-ru="Обложка">Обложка</a>
+            <a href="#about" class="drawer-link" style="--i: 2;" data-kz="Мен туралы" data-ru="О себе">О себе</a>
+            <a href="#problems" class="drawer-link" style="--i: 3;" data-kz="Мәселе" data-ru="Проблема">Проблема</a>
+            <a href="#solution" class="drawer-link" style="--i: 4;" data-kz="Шешім" data-ru="Решение">Решение</a>
+            <a href="#pricing" class="drawer-link" style="--i: 5;" data-kz="Бағалар" data-ru="Цены">Цены</a>
+            <a href="#portfolio" class="drawer-link" style="--i: 6;" data-kz="Портфолио" data-ru="Мои работы">Мои работы</a>
+            <a href="#process" class="drawer-link" style="--i: 7;" data-kz="Процесс" data-ru="Процесс">Процесс</a>
+            <a href="#cta" class="drawer-link" style="--i: 8;" data-kz="Байланыс" data-ru="Контакты">Контакты</a>
+        </nav>
+        <div class="drawer-footer">
+            <div class="drawer-author-box">
+                <p class="drawer-spec" data-kz="Алпысбаев Дамир Болатұлы" data-ru="Алпысбаев Дамир Болатұлы">Алпысбаев Дамир Болатұлы</p>
+                <p class="drawer-sub" data-kz="Fullstack веб-әзірлеуші" data-ru="Fullstack веб-разработчик">Fullstack веб-разработчик</p>
+            </div>
+            <div class="drawer-socials">
+                <a href="https://wa.me/77024799566" target="_blank"><i class="ti ti-brand-whatsapp"></i></a>
+                <a href="https://t.me/Daemir" target="_blank"><i class="ti ti-brand-telegram"></i></a>
+                <a href="mailto:damirdamir692@gmail.com"><i class="ti ti-mail"></i></a>
+                <a href="tel:+77024799566"><i class="ti ti-phone"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Side Presentation Controls (Hidden in scroll mode) -->
+    <div class="presentation-controls">
+        <button id="prev-slide" class="slide-control-btn glass-btn"><i class="ti ti-arrow-left"></i></button>
+        <div class="slide-indicator">
+            <span class="current-slide">1</span> / <span class="total-slides">8</span>
+        </div>
+        <button id="next-slide" class="slide-control-btn glass-btn"><i class="ti ti-arrow-right"></i></button>
+    </div>
+
+    <!-- Main Content Presentation container -->
+    <main id="slides-container" class="scroll-wrapper">
+
+        <!-- SLIDE 1: COVER (Мұқаба) -->
+        <section id="cover" class="slide-section active-slide">
+            <div class="slide-content centered-content">
+                <div class="badge-wrapper animated-fade-in">
+                    <span class="premium-badge glass-panel" data-kz="Коммерциялық ұсыныс" data-ru="Коммерческое предложение">
+                        Коммерческое предложение
+                    </span>
+                </div>
+                
+                <h1 class="main-title animated-fade-in delay-1">
+                    <span class="text-glow-mint" data-kz="Сіздің бизнесіңіз үшін —" data-ru="Профессиональный сайт">Профессиональный сайт</span> 
+                    <br>
+                    <span class="text-glow-gold" data-kz="кәсіби сайт" data-ru="для вашего бизнеса">для вашего бизнеса</span>
+                </h1>
+                
+                <p class="subtitle-text animated-fade-in delay-2" data-kz="Шағын және орта бизнеске арналған тиімді веб-әзірлеу шешімдері" data-ru="Эффективные решения веб-разработки для малого и среднего бизнеса">
+                    Эффективные решения веб-разработки для малого и среднего бизнеса
+                </p>
+
+                <!-- Dynamic floating circles and grids decoration -->
+                <div class="geometric-decor">
+                    <svg width="450" height="150" viewBox="0 0 450 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 75 H440" stroke="rgba(58, 189, 163, 0.25)" stroke-width="1" stroke-dasharray="8 4"/>
+                        <circle cx="225" cy="75" r="45" stroke="rgba(245, 166, 35, 0.3)" stroke-width="1.2" stroke-dasharray="6 3"/>
+                        <circle cx="225" cy="75" r="65" stroke="rgba(58, 189, 163, 0.2)" stroke-width="1"/>
+                        <circle cx="225" cy="75" r="85" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" stroke-dasharray="12 6"/>
+                        
+                        <path d="M165 35 L225 75 L285 35" stroke="rgba(245, 166, 35, 0.5)" stroke-width="1"/>
+                        <path d="M165 115 L225 75 L285 115" stroke="rgba(58, 189, 163, 0.5)" stroke-width="1"/>
+                        <circle cx="225" cy="75" r="5" fill="#3ABDA3"/>
+                        
+                        <!-- Side glowing nodes -->
+                        <circle cx="60" cy="75" r="3" fill="#F5A623"/>
+                        <circle cx="390" cy="75" r="3" fill="#3ABDA3"/>
+                    </svg>
+                </div>
+
+                <div class="scroll-hint animated-fade-in delay-3" id="start-journey">
+                    <span data-kz="Төмен айналдырыңыз немесе бастаңыз" data-ru="Прокрутите вниз или начните">Прокрутите вниз или начните</span>
+                    <div class="mouse-icon">
+                        <div class="wheel"></div>
+                    </div>
+                </div>
+
+                <!-- Footer contacts info at bottom of Slide 1 -->
+                <div class="cover-author-footer glass-panel animated-fade-in delay-3">
+                    <div class="author-info">
+                        <h3 class="author-name">Алпысбаев Дамир Болатұлы</h3>
+                        <p class="author-spec" data-kz="Веб-әзірлеуші" data-ru="Веб-разработчик">Веб-разработчик</p>
+                    </div>
+                    <div class="author-contacts-strip">
+                        <a href="tel:+77024799566" class="contact-strip-item"><i class="ti ti-phone"></i> +7 (702) 479 95 66</a>
+                        <a href="https://t.me/Daemir" target="_blank" class="contact-strip-item"><i class="ti ti-brand-telegram"></i> @Daemir</a>
+                        <a href="https://wa.me/77024799566" target="_blank" class="contact-strip-item"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+                        <a href="mailto:damirdamir692@gmail.com" class="contact-strip-item"><i class="ti ti-mail"></i> damirdamir692@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: ABOUT ME (Мен туралы) -->
+        <section id="about" class="slide-section">
+            <div class="slide-content">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-kz="Мен туралы" data-ru="О себе">О себе</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Left: Interactive Profile Avatar and Quick Info -->
+                    <div class="about-left">
+                        <div class="interactive-avatar-container">
+                            <div class="avatar-glow-ring ring-1"></div>
+                            <div class="avatar-glow-ring ring-2"></div>
+                            <div class="avatar-ring-dots"></div>
+                            <div class="avatar-core glass-panel">
+                                <!-- Modern High-Tech SVG Developer Portrait -->
+                                <svg viewBox="0 0 100 100" class="dev-svg-avatar">
+                                    <defs>
+                                        <linearGradient id="gradient-mint" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#3ABDA3" />
+                                            <stop offset="100%" stop-color="#1A5C4F" />
+                                        </linearGradient>
+                                        <linearGradient id="gradient-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#F5A623" />
+                                            <stop offset="100%" stop-color="#8F5E0D" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Dynamic Coding Grid Lines in Background -->
+                                    <line x1="10" y1="20" x2="90" y2="20" stroke="rgba(58,189,163,0.1)" stroke-width="0.5"/>
+                                    <line x1="20" y1="10" x2="20" y2="90" stroke="rgba(58,189,163,0.1)" stroke-width="0.5"/>
+                                    <circle cx="50" cy="50" r="42" stroke="url(#gradient-mint)" stroke-width="1.5" fill="none" stroke-dasharray="5 3"/>
+                                    
+                                    <!-- Human Figure Stylized -->
+                                    <!-- Shoulders -->
+                                    <path d="M22 85 C22 72, 32 63, 50 63 C68 63, 78 72, 78 85 Z" fill="rgba(58, 189, 163, 0.2)" stroke="url(#gradient-mint)" stroke-width="1"/>
+                                    <!-- Glowing circuit paths on jacket -->
+                                    <path d="M35 85 L35 72 L45 68" stroke="#F5A623" stroke-width="0.8" fill="none"/>
+                                    <circle cx="45" cy="68" r="1.5" fill="#F5A623"/>
+                                    <path d="M65 85 L65 72 L55 68" stroke="#3ABDA3" stroke-width="0.8" fill="none"/>
+                                    <circle cx="55" cy="68" r="1.5" fill="#3ABDA3"/>
+                                    
+                                    <!-- Face / Neck -->
+                                    <rect x="46" y="52" width="8" height="12" rx="4" fill="rgba(245,166,35,0.15)" stroke="url(#gradient-gold)" stroke-width="0.8"/>
+                                    <path d="M36 38 C36 28, 64 28, 64 38 C64 48, 64 56, 50 56 C36 56, 36 48, 36 38 Z" fill="#0A0F1D" stroke="url(#gradient-mint)" stroke-width="1"/>
+                                    
+                                    <!-- Hair Stylized -->
+                                    <path d="M34 38 C34 26, 44 22, 50 22 C62 22, 66 28, 66 36 C63 32, 54 31, 50 33 C46 31, 37 32, 34 38 Z" fill="url(#gradient-mint)"/>
+                                    <path d="M35 34 L33 39 L37 42 Z" fill="url(#gradient-mint)"/>
+
+                                    <!-- Modern Specs -->
+                                    <rect x="40" y="38" width="8" height="6" rx="1" stroke="#F5A623" stroke-width="1" fill="none"/>
+                                    <rect x="52" y="38" width="8" height="6" rx="1" stroke="#F5A623" stroke-width="1" fill="none"/>
+                                    <line x1="48" y1="41" x2="52" y2="41" stroke="#F5A623" stroke-width="1"/>
+                                    <!-- Glow inside glasses -->
+                                    <circle cx="44" cy="41" r="2" fill="rgba(245,166,35,0.4)"/>
+                                    <circle cx="56" cy="41" r="2" fill="rgba(245,166,35,0.4)"/>
+                                    
+                                    <!-- Code Lines floating in avatar -->
+                                    <text x="12" y="32" fill="#3ABDA3" font-size="5" font-family="monospace" opacity="0.7">&lt;code&gt;</text>
+                                    <text x="68" y="32" fill="#F5A623" font-size="5" font-family="monospace" opacity="0.7">deploy</text>
+                                    <text x="68" y="58" fill="#3ABDA3" font-size="5" font-family="monospace" opacity="0.6">Docker</text>
+                                    <text x="12" y="58" fill="#F5A623" font-size="5" font-family="monospace" opacity="0.6">C#</text>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="left-quick-details glass-panel">
+                            <div class="detail-row">
+                                <i class="ti ti-user detail-icon-mint"></i>
+                                <div class="detail-text">
+                                    <span class="lbl" data-kz="Аты-жөні" data-ru="Имя">Имя</span>
+                                    <span class="val">Дамир Болатұлы</span>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <i class="ti ti-briefcase detail-icon-gold"></i>
+                                <div class="detail-text">
+                                    <span class="lbl" data-kz="Тәжірибе" data-ru="Опыт">Опыт</span>
+                                    <span class="val" data-kz="4+ жыл" data-ru="4+ года">4+ года</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Narrative Bio, Experience Lists & Stack -->
+                    <div class="about-right">
+                        <div class="bio-card glass-panel">
+                            <p class="bio-desc font-accent" data-kz="«Мен шағын бизнес үшін заманауи, жылдам және нәтижелі сайттар жасаймын. 4 жылдан астам коммерциялық жобаларда тәжірибем бар. Менің сайтым сіздің клиентіңіз үшін 24/7 жұмыс жасайды.»" data-ru="«Создаю современные, быстрые и результативные сайты для малого бизнеса. Более 4 лет коммерческого опыта. Ваш сайт будет работать на вас круглосуточно.»">
+                                «Создаю современные, быстрые и результативные сайты для малого бизнеса. Более 4 лет коммерческого опыта. Ваш сайт будет работать на вас круглосуточно.»
+                            </p>
+                        </div>
+
+                        <div class="academic-work-grid">
+                            <!-- Education -->
+                            <div class="grid-subcard glass-panel">
+                                <h3 class="subcard-title"><i class="ti ti-school icon-mint"></i> <span data-kz="Білім" data-ru="Образование">Образование</span></h3>
+                                <div class="timeline-item">
+                                    <h4 class="timeline-header" data-kz="Халықаралық ақпараттық технологиялар университеті, Алматы" data-ru="Международный университет информационных технологий, Алматы">МУИТ, Алматы</h4>
+                                    <p class="timeline-sub" data-kz="2021 | Бакалавр — Ақпараттық жүйелер" data-ru="2021 | Бакалавр — Информационные системы">2021 | Бакалавр — Информационные системы</p>
+                                </div>
+                            </div>
+
+                            <!-- Experience Timeline -->
+                            <div class="grid-subcard glass-panel">
+                                <h3 class="subcard-title"><i class="ti ti-briefcase icon-gold"></i> <span data-kz="Жұмыс тәжірибесі" data-ru="Опыт работы">Опыт работы</span></h3>
+                                <div class="timeline-container">
+                                    <div class="timeline-item">
+                                        <h4 class="timeline-header" data-kz="ҚР СЖРА ҰСПД Ұлттық статистика бюросының Ақпараттық-есептеу орталығы" data-ru="РГП ИВЦ БНС АСПиР РК">РГП ИВЦ БНС АСПиР РК</h4>
+                                        <p class="timeline-sub" data-kz="Инженер-бағдарламашы (2022 — қазіргі уақыт)" data-ru="Инженер-программист (2022 — наст. время)">Инженер-программист (2022 — наст. время)</p>
+                                    </div>
+                                    <div class="timeline-item border-top-glow">
+                                        <h4 class="timeline-header" data-kz="«Қазтеміртранс» АҚ" data-ru="АО Қазтеміртранс">АО Қазтеміртранс</h4>
+                                        <p class="timeline-sub" data-kz="Инженер-бағдарламашы (2021–2022)" data-ru="Инженер-программист (2021–2022)">Инженер-программист (2021–2022)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technology Stack Section -->
+                        <div class="stack-section glass-panel">
+                            <h3 class="stack-title"><i class="ti ti-code icon-mint"></i> <span data-kz="Технологиялық стек" data-ru="Технологический стек">Технологический стек</span></h3>
+                            
+                            <div class="stack-groups">
+                                <div class="stack-group">
+                                    <span class="group-label">Backend:</span>
+                                    <div class="pill-container">
+                                        <span class="stack-pill">C#</span>
+                                        <span class="stack-pill">ASP.NET Core</span>
+                                        <span class="stack-pill">REST API</span>
+                                        <span class="stack-pill">Docker</span>
+                                    </div>
+                                </div>
+                                <div class="stack-group">
+                                    <span class="group-label">Frontend:</span>
+                                    <div class="pill-container">
+                                        <span class="stack-pill pill-mint">Angular</span>
+                                        <span class="stack-pill pill-mint">TypeScript</span>
+                                        <span class="stack-pill pill-mint">HTML5 / CSS3</span>
+                                    </div>
+                                </div>
+                                <div class="stack-group">
+                                    <span class="group-label">Databases:</span>
+                                    <div class="pill-container">
+                                        <span class="stack-pill">SQL Server</span>
+                                        <span class="stack-pill">Oracle DB</span>
+                                    </div>
+                                </div>
+                                <div class="stack-group">
+                                    <span class="group-label">Tools:</span>
+                                    <div class="pill-container">
+                                        <span class="stack-pill pill-gold">Git</span>
+                                        <span class="stack-pill pill-gold">Swagger</span>
+                                        <span class="stack-pill pill-gold">Postman</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: PROBLEM (Мәселе) -->
+        <section id="problems" class="slide-section">
+            <div class="slide-content">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-kz="Таныс жағдай ма?" data-ru="Знакомо?">Знакомо?</span></h2>
+                    <div class="title-underline underline-amber"></div>
+                </div>
+                
+                <p class="section-intro" data-kz="Сіздің бизнесіңіз онлайн-кеңістікте осындай қиындықтарға тап болды ма?" data-ru="Столкивается ли ваш бизнес с подобными трудностями в онлайн-пространстве?">
+                    Сталкивается ли ваш бизнес с подобными трудностями в онлайн-пространстве?
+                </p>
+
+                <div class="problems-grid">
+                    <!-- Card 1 -->
+                    <div class="problem-card glass-panel anim-hover-scale">
+                        <div class="problem-icon-wrapper color-red">
+                            <i class="ti ti-map-off"></i>
+                        </div>
+                        <h3 class="problem-card-title" data-kz="Интернетте табылмайсыз" data-ru="Вас нет в интернете">Вас нет в интернете</h3>
+                        <p class="problem-desc" data-kz="Карталарда, іздеу жүйелерінде сіздің бизнесіңіз жоқ. Жаңа клиенттер сіз туралы ешқашан білмейді." data-ru="Бизнес отсутствует на картах и в поисковиках. Новые клиенты о вас просто не узнают.">
+                            Бизнес отсутствует на картах и в поисковиках. Новые клиенты о вас просто не узнают.
+                        </p>
+                        <div class="danger-indicator-line"></div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="problem-card glass-panel anim-hover-scale">
+                        <div class="problem-icon-wrapper color-orange">
+                            <i class="ti ti-alert-circle"></i>
+                        </div>
+                        <h3 class="problem-card-title" data-kz="Instagram бар, бірақ сенім жоқ" data-ru="Есть Instagram, но нет доверия">Есть Instagram, но нет доверия</h3>
+                        <p class="problem-desc" data-kz="Тек әлеуметтік желі жеткіліксіз. Клиенттер кәсіби сайттың болмауын тұрақсыздықтың белгісі деп санайды." data-ru="Одной соцсети мало. Клиенты считают отсутствие полноценного сайта признаком несерьезности.">
+                            Одной соцсети мало. Клиенты считают отсутствие полноценного сайта признаком несерьезности.
+                        </p>
+                        <div class="danger-indicator-line"></div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="problem-card glass-panel anim-hover-scale">
+                        <div class="problem-icon-wrapper color-red">
+                            <i class="ti ti-trending-down"></i>
+                        </div>
+                        <h3 class="problem-card-title" data-kz="Бәсекелестеріңіздің сайты бар — сіздікі жоқ" data-ru="Конкуренты с сайтом — вы теряете клиентов">Конкуренты с сайтом — вы теряете клиентов</h3>
+                        <p class="problem-desc" data-kz="Клиенттер іздеу жүйелері арқылы бәсекелестерді тауып, тапсырысты соларға береді. Сіз пайданы жоғалтасыз." data-ru="Покупатели ищут услуги в Google и уходят к конкурентам, у которых есть сайт. Вы теряете прибыль.">
+                            Покупатели ищут услуги в Google and уходят к конкурентам, у которых есть сайт. Вы теряете прибыль.
+                        </p>
+                        <div class="danger-indicator-line"></div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="problem-card glass-panel anim-hover-scale">
+                        <div class="problem-icon-wrapper color-orange">
+                            <i class="ti ti-calendar-off"></i>
+                        </div>
+                        <h3 class="problem-card-title" data-kz="Онлайн-жазылу жоқ — клиент кетеді" data-ru="Нет онлайн-записи — клиенты уходят">Нет онлайн-записи — клиенты уходят</h3>
+                        <p class="problem-desc" data-kz="Телефон соғу немесе Direct-ке жазу өте қолайсыз. Клиенттер 1 кликпен жазылуды ұнатады, әйтпесе кетеді." data-ru="Звонить или писать в Direct неудобно. Клиенты хотят записываться в 1 клик прямо сейчас, иначе уходят.">
+                            Звонить или писать в Direct неудобно. Клиенты хотят записываться в 1 клик прямо сейчас, иначе уходят.
+                        </p>
+                        <div class="danger-indicator-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: SOLUTION (Шешім) -->
+        <section id="solution" class="slide-section">
+            <div class="slide-content">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-kz="Мен не ұсынамын" data-ru="Что я предлагаю">Что я предлагаю</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <p class="section-intro" data-kz="Сіздің бизнесіңізді жаңа деңгейге көтеретін кәсіби шешімдер кешені" data-ru="Комплекс профессиональных решений, выводящий ваш бизнес на новый цифровой уровень">
+                    Комплекс профессиональных решений, выводящий ваш бизнес на новый цифровой уровень
+                </p>
+
+                <div class="solutions-grid">
+                    <!-- Solution 1 -->
+                    <div class="solution-card glass-panel">
+                        <div class="solution-header">
+                            <i class="ti ti-device-laptop sol-icon"></i>
+                            <h3 class="solution-card-title" data-kz="Заманауи адаптивті сайт" data-ru="Современный адаптивный сайт">Современный адаптивный сайт</h3>
+                        </div>
+                        <p class="solution-desc" data-kz="Телефонда да, компьютерде де тамаша көрінетін жылдам, стильді, адаптивті интерфейс." data-ru="Стильный, быстрый и удобный интерфейс, идеально работающий на смартфонах, планшетах и ПК.">
+                            Стильный, быстрый и удобный интерфейс, идеально работающий на смартфонах, планшетах и ПК.
+                        </p>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div class="solution-card glass-panel">
+                        <div class="solution-header">
+                            <i class="ti ti-calendar-check sol-icon"></i>
+                            <h3 class="solution-card-title" data-kz="Онлайн-жазылу формасы" data-ru="Форма онлайн-записи">Форма онлайн-записи</h3>
+                        </div>
+                        <p class="solution-desc" data-kz="Клиенттерге қоңыраусыз және артық әрекетсіз ыңғайлы уақытты таңдап, 24/7 жазылуға мүмкіндік береді." data-ru="Возможность клиентам бронировать услуги и выбирать свободное время круглосуточно и без звонков.">
+                            Возможность клиентам бронировать услуги и выбирать свободное время круглосуточно и без звонков.
+                        </p>
+                    </div>
+
+                    <!-- Solution 3 -->
+                    <div class="solution-card glass-panel">
+                        <div class="solution-header">
+                            <i class="ti ti-brand-whatsapp sol-icon"></i>
+                            <h3 class="solution-card-title" data-kz="Интеграциялар" data-ru="Интеграция с мессенджерами">Интеграция с мессенджерами</h3>
+                        </div>
+                        <p class="solution-desc" data-kz="Instagram аккаунтымен, WhatsApp мессенджерімен және 2GIS / Google карталарымен толық интеграциялау." data-ru="Связка с соцсетями (Instagram), кнопками WhatsApp для быстрых чатов и интерактивными картами.">
+                            Связка с соцсетями (Instagram), кнопками WhatsApp для быстрых чатов и интерактивными картами.
+                        </p>
+                    </div>
+
+                    <!-- Solution 4 -->
+                    <div class="solution-card glass-panel">
+                        <div class="solution-header">
+                            <i class="ti ti-search sol-icon"></i>
+                            <h3 class="solution-card-title" data-kz="Google-да табылу (SEO)" data-ru="SEO-оптимизация">SEO-оптимизация</h3>
+                        </div>
+                        <p class="solution-desc" data-kz="Сайтыңыз іздеу жүйелеріне бейімделеді. Клиенттер сізді Google арқылы оңай табатын болады." data-ru="Первичная оптимизация под поисковые роботы. Ваш сайт будет легче индексироваться и находиться в Google.">
+                            Первичная оптимизация под поисковые роботы. Ваш сайт будет легче индексироваться и находиться в Google.
+                        </p>
+                    </div>
+
+                    <!-- Solution 5 -->
+                    <div class="solution-card glass-panel">
+                        <div class="solution-header">
+                            <i class="ti ti-shield-check sol-icon"></i>
+                            <h3 class="solution-card-title" data-kz="Жылдам жүктелу + қауіпсіздік" data-ru="Скорость и безопасность">Скорость и безопасность</h3>
+                        </div>
+                        <p class="solution-desc" data-kz="Сайттың қауіпсіздігі үшін SSL-сертификатын орнату және 1-2 секундта жүктелетін таза кодты әзірлеу." data-ru="Чистый код для мгновенного запуска за секунды и установка SSL-сертификата защиты ваших данных.">
+                            Чистый код для мгновенного запуска за секунды и установка SSL-сертификата защиты ваших данных.
+                        </p>
+                    </div>
+
+                    <!-- Solution 6 -->
+                    <div class="solution-card glass-panel">
+                        <div class="solution-header">
+                            <i class="ti ti-heart sol-icon"></i>
+                            <h3 class="solution-card-title" data-kz="Тапсырғаннан кейінгі қолдау" data-ru="Поддержка после сдачи">Поддержка после сдачи</h3>
+                        </div>
+                        <p class="solution-desc" data-kz="Сайтты тапсырғаннан кейін тегін техникалық бақылау, сұрақтарға жауап беремір, қателерді түзетемін." data-ru="Бесплатное сопровождение в течение гарантийного периода: консультации, мелкие правки и мониторинг.">
+                            Бесплатное сопровождение в течение гарантийного периода: консультации, мелкие правки и мониторинг.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Footer highlight banner -->
+                <div class="solution-footer-banner glass-panel anim-glow-border">
+                    <div class="banner-avatar-mini">
+                        <i class="ti ti-rocket icon-mint"></i>
+                    </div>
+                    <p class="banner-text" data-kz="Дамир — fullstack веб-әзірлеуші. Бір адаммен — сайт кілтпен толық тапсырылады." data-ru="Дамир — fullstack разработчик. Один человек — сайт под ключ без лишних посредников.">
+                        Дамир — fullstack разработчик. Один человек — сайт под ключ без лишних посредников.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: PRICING (Бағалар) -->
+        <section id="pricing" class="slide-section">
+            <div class="slide-content">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-kz="Бағалар & Тарифтер" data-ru="Тарифы и цены">Тарифы и цены</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="pricing-cards-container">
+                    <!-- Tariff 1: Start -->
+                    <div class="price-card glass-panel">
+                        <div class="card-header-top">
+                            <span class="tariff-name" data-kz="Бастама" data-ru="Старт">Старт</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="price-val">150 000</span>
+                            <span class="currency">₸</span>
+                        </div>
+                        <p class="tariff-target" data-kz="Кімге: жаңадан бастаған бизнес үшін" data-ru="Для кого: для тех, кто только начинает">Для кого: для тех, кто только начинает</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="1–3 беттік сайт" data-ru="1–3 страницы">1–3 страницы</span></div>
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="Мобильді адаптация" data-ru="Мобильная адаптация">Мобильная адаптация</span></div>
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="Байланыс формасы + WhatsApp" data-ru="Форма связи + WhatsApp кнопка">Форма связи + WhatsApp кнопка</span></div>
+                            <div class="feature-item"><i class="ti ti-calendar-time"></i> <span data-kz="Жеткізу: 7–10 күн" data-ru="Срок: 7–10 дней">Срок: 7–10 дней</span></div>
+                            <div class="feature-item"><i class="ti ti-shield-half"></i> <span data-kz="Қолдау: 7 күн" data-ru="Поддержка: 7 дней">Поддержка: 7 дней</span></div>
+                        </div>
+
+                        <button class="pricing-cta-btn glass-btn select-tariff-action" data-tariff="Start" data-tariff-ru="Старт" data-tariff-kz="Бастама" data-kz="Таңдау" data-ru="Выбрать">Выбрать</button>
+                    </div>
+
+                    <!-- Tariff 2: Business (RECOMMENDED / POPULAR) -->
+                    <div class="price-card glass-panel recommended-card">
+                        <div class="popular-badge" data-kz="ЕҢ ТАНЫМАЛ ★ ҰСЫНЫЛАДЫ" data-ru="РЕКОМЕНДУЕМ ★ ПОПУЛЯРНЫЙ">РЕКОМЕНДУЕМ ★ ПОПУЛЯРНЫЙ</div>
+                        <div class="card-header-top">
+                            <span class="tariff-name font-accent" data-kz="Бизнес" data-ru="Бизнес">Бизнес</span>
+                        </div>
+                        <div class="price-box text-gold">
+                            <span class="price-val">250 000</span>
+                            <span class="currency">₸</span>
+                        </div>
+                        <p class="tariff-target" data-kz="Кімге: белсенді дамып келе жатқан бизнес" data-ru="Для кого: для активно растущего бизнеса">Для кого: для активно растущего бизнеса</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item highlight-feature"><i class="ti ti-circle-check"></i> <span data-kz="5–7 беттік толық сайт" data-ru="5–7 страниц сайта">5–7 страниц сайта</span></div>
+                            <div class="feature-item highlight-feature"><i class="ti ti-circle-check"></i> <span data-kz="Онлайн-жазылу + интеграциялар" data-ru="Онлайн-запись + соцсети (Instagram)">Онлайн-запись + соцсети (Instagram)</span></div>
+                            <div class="feature-item highlight-feature"><i class="ti ti-circle-check"></i> <span data-kz="Базовое SEO-жылжыту" data-ru="Базовое SEO-продвижение">Базовое SEO-продвижение</span></div>
+                            <div class="feature-item highlight-feature"><i class="ti ti-circle-check"></i> <span data-kz="WhatsApp + 2GIS / Google карталар" data-ru="Интеграция с WhatsApp и картами">Интеграция с WhatsApp и картами</span></div>
+                            <div class="feature-item"><i class="ti ti-calendar-time"></i> <span data-kz="Жеткізу: 14–21 күн" data-ru="Срок: 14–21 день">Срок: 14–21 день</span></div>
+                            <div class="feature-item"><i class="ti ti-shield-check"></i> <span data-kz="Қолдау: 14 күн" data-ru="Поддержка: 14 дней">Поддержка: 14 дней</span></div>
+                        </div>
+
+                        <button class="pricing-cta-btn recommended-btn select-tariff-action" data-tariff="Business" data-tariff-ru="Бизнес" data-tariff-kz="Бизнес" data-kz="Таңдау" data-ru="Выбрать">Выбрать</button>
+                    </div>
+
+                    <!-- Tariff 3: Premium -->
+                    <div class="price-card glass-panel">
+                        <div class="card-header-top">
+                            <span class="tariff-name" data-kz="Премиум" data-ru="Премиум">Премиум</span>
+                        </div>
+                        <div class="price-box">
+                            <span class="price-val">350 000</span>
+                            <span class="currency">₸</span>
+                        </div>
+                        <p class="tariff-target" data-kz="Кімге: жоғары бедел мен каталог қажет" data-ru="Для кого: профессиональный имидж онлайн">Для кого: профессиональный имидж онлайн</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="Көпбетті сайт (Каталог / Блог)" data-ru="Сайт с каталогом или блогом">Сайт с каталогом или блогом</span></div>
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="Google Analytics терең талдау" data-ru="Установка Google Analytics">Установка Google Analytics</span></div>
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="Кеңейтілген SEO-оңтайландыру" data-ru="Полное SEO-продвижение">Полное SEO-продвижение</span></div>
+                            <div class="feature-item"><i class="ti ti-circle-check"></i> <span data-kz="Кез келген интеграция" data-ru="Сложные интеграции и формы">Сложные интеграции и формы</span></div>
+                            <div class="feature-item"><i class="ti ti-calendar-time"></i> <span data-kz="Жеткізу: 21–30 күн" data-ru="Срок: 21–30 дней">Срок: 21–30 дней</span></div>
+                            <div class="feature-item"><i class="ti ti-shield-check"></i> <span data-kz="Қолдау: 1 ай кепілдік" data-ru="Поддержка: 1 месяц">Поддержка: 1 месяц</span></div>
+                        </div>
+
+                        <button class="pricing-cta-btn glass-btn select-tariff-action" data-tariff="Premium" data-tariff-ru="Премиум" data-tariff-kz="Премиум" data-kz="Таңдау" data-ru="Выбрать">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: PORTFOLIO (Портфолио) -->
+        <section id="portfolio" class="slide-section">
+            <div class="slide-content">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-kz="Менің жұмыстарым" data-ru="Портфолио">Портфолио</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <p class="section-intro" data-kz="Клиенттерім үшін жасалған нақты нәтижелері бар кәсіби жобалар кейстері" data-ru="Реальные примеры разработанных проектов с высокими бизнес-показателями">
+                    Реальные примеры разработанных проектов с высокими бизнес-показателями
+                </p>
+
+                <div class="portfolio-showcase">
+                    <!-- Project 1: Cafe Website -->
+                    <div class="portfolio-item glass-panel">
+                        <!-- High fidelity Simulated Web Browser Frame -->
+                        <div class="simulated-browser">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span class="b-dot red"></span>
+                                    <span class="b-dot yellow"></span>
+                                    <span class="b-dot green"></span>
+                                </div>
+                                <div class="browser-address">http://elite-resto.kz</div>
+                            </div>
+                            <div class="browser-body p-cafe">
+                                <div class="mock-hero">
+                                    <span class="m-cafe-logo">Elite Resto</span>
+                                    <div class="m-menu-btn">Menu & Lounge</div>
+                                    <div class="m-title" data-kz="Дәм мен сезім ұйқасы" data-ru="Гармония вкуса">Гармония вкуса</div>
+                                    <button class="m-book-btn">Book Table</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <div class="proj-type" data-kz="Мейрамхана сайты" data-ru="Сайт для ресторана/кафе">Сайт для ресторана/кафе</div>
+                            <h3 class="proj-name">Elite Resto Almaty</h3>
+                            <div class="proj-stack">
+                                <span class="badge-mini">Angular</span>
+                                <span class="badge-mini">TypeScript</span>
+                                <span class="badge-mini">Vanilla CSS</span>
+                            </div>
+                            <div class="result-badge">
+                                <i class="ti ti-trending-up"></i>
+                                <span data-kz="Онлайн-жазылулар +60%" data-ru="Онлайн-записи +60%">Онлайн-записи +60%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Beauty Salon / Medical Center Website -->
+                    <div class="portfolio-item glass-panel">
+                        <div class="simulated-browser">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span class="b-dot red"></span>
+                                    <span class="b-dot yellow"></span>
+                                    <span class="b-dot green"></span>
+                                </div>
+                                <div class="browser-address">http://aura-clinic.kz</div>
+                            </div>
+                            <div class="browser-body p-beauty">
+                                <div class="mock-hero">
+                                    <span class="m-salon-logo">AURA CLINIC</span>
+                                    <div class="m-tagline" data-kz="Медицина & Сұлулық орталығы" data-ru="Центр медицины и красоты">Центр медицины и красоты</div>
+                                    <div class="m-calendar-mock">
+                                        <div class="c-day active">12:00</div>
+                                        <div class="c-day">14:30</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <div class="proj-type" data-kz="Медициналық орталық сайты" data-ru="Сайт клиники & красоты">Сайт клиники & красоты</div>
+                            <h3 class="proj-name">Aura Medical Clinic</h3>
+                            <div class="proj-stack">
+                                <span class="badge-mini">Angular</span>
+                                <span class="badge-mini">C#</span>
+                                <span class="badge-mini">ASP.NET Core</span>
+                            </div>
+                            <div class="result-badge">
+                                <i class="ti ti-trending-up"></i>
+                                <span data-kz="Автоматтандыру +80%" data-ru="Автоматизация записи +80%">Автоматизация записи +80%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Eco Green Mart Store -->
+                    <div class="portfolio-item glass-panel">
+                        <div class="simulated-browser">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span class="b-dot red"></span>
+                                    <span class="b-dot yellow"></span>
+                                    <span class="b-dot green"></span>
+                                </div>
+                                <div class="browser-address">http://greenmart.kz</div>
+                            </div>
+                            <div class="browser-body p-shop">
+                                <div class="mock-hero">
+                                    <div class="shop-grid">
+                                        <div class="shop-item">🌿 Organic Tea</div>
+                                        <div class="shop-item">🍯 Bio Honey</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <div class="proj-type" data-kz="Интернет-дүкен" data-ru="Интернет-магазин">Интернет-магазин</div>
+                            <h3 class="proj-name">GreenMart E-Shop</h3>
+                            <div class="proj-stack">
+                                <span class="badge-mini">Angular</span>
+                                <span class="badge-mini">TypeScript</span>
+                                <span class="badge-mini">Tailwind</span>
+                            </div>
+                            <div class="result-badge">
+                                <i class="ti ti-trending-up"></i>
+                                <span data-kz="Сатылымдар айына +120%" data-ru="Рост продаж +120%">Рост продаж +120%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Kaz-Logist Corporate portal -->
+                    <div class="portfolio-item glass-panel">
+                        <div class="simulated-browser">
+                            <div class="browser-header">
+                                <div class="browser-dots">
+                                    <span class="b-dot red"></span>
+                                    <span class="b-dot yellow"></span>
+                                    <span class="b-dot green"></span>
+                                </div>
+                                <div class="browser-address">http://kaz-logist.kz</div>
+                            </div>
+                            <div class="browser-body p-logist">
+                                <div class="mock-hero">
+                                    <span class="m-cafe-logo">KAZ-LOGIST</span>
+                                    <div class="m-tagline" data-kz="Жүк тасымалдарын есептеу" data-ru="Калькулятор логистики">Калькулятор логистики</div>
+                                    <div class="shop-grid">
+                                        <div class="shop-item">🚚 12 тонна</div>
+                                        <div class="shop-item">📍 Алматы - Астана</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-details">
+                            <div class="proj-type" data-kz="Логистикалық портал" data-ru="Корпоративный портал">Корпоративный портал</div>
+                            <h3 class="proj-name">Kaz-Logist Delivery</h3>
+                            <div class="proj-stack">
+                                <span class="badge-mini">C#</span>
+                                <span class="badge-mini">ASP.NET Core</span>
+                                <span class="badge-mini">Oracle</span>
+                            </div>
+                            <div class="result-badge">
+                                <i class="ti ti-trending-up"></i>
+                                <span data-kz="Сұраныстар +45%" data-ru="Рост заявок +45%">Рост заявок +45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-footer animated-fade-in delay-2">
+                    <button class="more-portfolio-btn glass-btn anim-glow-border" id="open-github-cta">
+                        <i class="ti ti-brand-github icon-mint"></i>
+                        <span data-kz="Толығырақ / Менің Github-ым" data-ru="Подробнее / Мой Github">Подробнее / Мой Github</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 7: PROCESS (Жұмыс процесі) -->
+        <section id="process" class="slide-section">
+            <div class="slide-content">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-kz="Жұмыс процесі" data-ru="Как проходит работа">Как проходит работа</span></h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Stepper Progress bar visual -->
+                <div class="stepper-outer-container">
+                    <div class="stepper-progress-track">
+                        <div class="stepper-progress-fill" id="stepper-fill-bar"></div>
+                    </div>
+                    
+                    <div class="stepper-steps-wrapper">
+                        <!-- Step 1 -->
+                        <div class="stepper-step active-step" data-step="1">
+                            <div class="step-num-circle">
+                                <span>1</span>
+                                <i class="ti ti-message-circle step-icon"></i>
+                            </div>
+                            <div class="step-time-badge" data-kz="1 күн" data-ru="1 день">1 день</div>
+                            <h3 class="step-title" data-kz="Консультация" data-ru="Консультация">Консультация</h3>
+                            <p class="step-description" data-kz="Мақсаттарды анықтаймыз, бриф толтырамыз" data-ru="Обсуждаем цели, заполняем бриф">Обсуждаем цели, заполняем бриф</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="stepper-step" data-step="2">
+                            <div class="step-num-circle">
+                                <span>2</span>
+                                <i class="ti ti-palette step-icon"></i>
+                            </div>
+                            <div class="step-time-badge" data-kz="3–5 күн" data-ru="3–5 дней">3–5 дней</div>
+                            <h3 class="step-title" data-kz="Дизайн макеті" data-ru="Дизайн-макет">Дизайн-макет</h3>
+                            <p class="step-description" data-kz="Figma-да дизайн ұсынамыз, бекітеміз" data-ru="Предлагаем дизайн в Figma, согласовываем">Предлагаем дизайн в Figma, согласовываем</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="stepper-step" data-step="3">
+                            <div class="step-num-circle">
+                                <span>3</span>
+                                <i class="ti ti-code step-icon"></i>
+                            </div>
+                            <div class="step-time-badge" data-kz="7–21 күн" data-ru="7–21 день">7–21 день</div>
+                            <h3 class="step-title" data-kz="Әзірлеу" data-ru="Разработка">Разработка</h3>
+                            <p class="step-description" data-kz="Кастомды код немесе CMS-те жасаймыз" data-ru="Разрабатываем на кастомном коде или CMS">Разрабатываем на кастомном коде или CMS</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="stepper-step" data-step="4">
+                            <div class="step-num-circle">
+                                <span>4</span>
+                                <i class="ti ti-rocket step-icon"></i>
+                            </div>
+                            <div class="step-time-badge" data-kz="2–3 күн" data-ru="2–3 дня">2–3 дня</div>
+                            <h3 class="step-title" data-kz="Сынақ & Тапсыру" data-ru="Тест и сдача">Тест и сдача</h3>
+                            <p class="step-description" data-kz="Барлық құрылғыда тексереміз, кілтті тапсырамыз" data-ru="Тестируем на всех устройствах, передаём доступы">Тестируем на всех устройствах, передаём доступы</p>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="stepper-step" data-step="5">
+                            <div class="step-num-circle">
+                                <span>5</span>
+                                <i class="ti ti-heart step-icon"></i>
+                            </div>
+                            <div class="step-time-badge" data-kz="7–30 күн" data-ru="7–30 дней">7–30 дней</div>
+                            <h3 class="step-title" data-kz="Қолдау" data-ru="Поддержка">Поддержка</h3>
+                            <p class="step-description" data-kz="Сұрақтарыңызға жауап беремін, қателерді түзетемін" data-ru="Отвечаю на вопросы, исправляю ошибки">Отвечаю на вопросы, исправляю ошибки</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 8: CTA / CONCLUSION (Соңы) -->
+        <section id="cta" class="slide-section slide-dark-contrast">
+            <div class="slide-content">
+                <div class="cta-layout-grid">
+                    <!-- Left Column: Trust signals, Contacts & Value proposition -->
+                    <div class="cta-left-content">
+                        <div class="cta-headline-wrapper">
+                            <span class="glow-accent-tag text-gold" data-kz="ЖЕКЕ ҰСЫНЫС" data-ru="ИНДИВИДУАЛЬНОЕ ПРЕДЛОЖЕНИЕ">ИНДИВИДУАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span>
+                            <h2 class="cta-main-title" data-kz="Бүгін бастайық" data-ru="Начнём сегодня">Начнём сегодня</h2>
+                            <div class="title-underline underline-gold"></div>
+                        </div>
+
+                        <p class="cta-narrative" data-kz="Сіздің бизнесіңіз онлайн болуды қажет етеді. Кәсіби сайт — клиенттер өздері келеді. Тегін консультацияға жазылыңыз — 24 сағат ішінде хабарласамын." data-ru="Ваш бизнес заслуживает быть онлайн. Профессиональный сайт — клиенты придут сами. Запишитесь на бесплатную консультацию — отвечу в течение 24 часов.">
+                            Ваш бизнес заслуживает быть онлайн. Профессиональный сайт — клиенты придут сами. Запишитесь на бесплатную консультацию — отвечу в течение 24 часов.
+                        </p>
+
+                        <!-- What client gets for free -->
+                        <div class="bonus-box glass-panel">
+                            <h4 class="bonus-title text-gold"><i class="ti ti-gift"></i> <span data-kz="Консультацияда ТЕГІН аласыз:" data-ru="На консультации бесплатно вы получите:">На консультации бесплатно вы получите:</span></h4>
+                            <ul class="bonus-list">
+                                <li><i class="ti ti-check text-gold"></i> <span data-kz="Сайтыңызды талдау" data-ru="Анализ вашего текущего сайта">Анализ вашего текущего сайта</span></li>
+                                <li><i class="ti ti-check text-gold"></i> <span data-kz="Бәсекелестеріңізді талдау" data-ru="Анализ сайтов ваших конкурентов">Анализ сайтов ваших конкурентов</span></li>
+                                <li><i class="ti ti-check text-gold"></i> <span data-kz="Сайт үшін практикалық ұсыныстар" data-ru="Рекомендации по структуре вашего сайта">Рекомендации по структуре вашего сайта</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Direct Contacts -->
+                        <div class="cta-contacts-grid">
+                            <a href="https://wa.me/77024799566" target="_blank" class="contact-box glass-panel chat-wa">
+                                <i class="ti ti-brand-whatsapp"></i>
+                                <div class="box-labels">
+                                    <span class="b-lbl">WhatsApp</span>
+                                    <span class="b-sub">+7 (702) 479 95 66</span>
+                                </div>
+                            </a>
+                            <a href="https://t.me/Daemir" target="_blank" class="contact-box glass-panel chat-tg">
+                                <i class="ti ti-brand-telegram"></i>
+                                <div class="box-labels">
+                                    <span class="b-lbl">Telegram</span>
+                                    <span class="b-sub">@Daemir</span>
+                                </div>
+                            </a>
+                            <a href="mailto:damirdamir692@gmail.com" class="contact-box glass-panel chat-mail">
+                                <i class="ti ti-mail"></i>
+                                <div class="box-labels">
+                                    <span class="b-lbl">Email</span>
+                                    <span class="b-sub">damirdamir692@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="tel:+77024799566" class="contact-box glass-panel chat-phone">
+                                <i class="ti ti-phone"></i>
+                                <div class="box-labels">
+                                    <span class="b-lbl" data-kz="Телефон соғу" data-ru="Позвонить">Позвонить</span>
+                                    <span class="b-sub">+7 (702) 479 95 66</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Warranty and Credential Seals -->
+                        <div class="seals-container">
+                            <div class="seal-item text-glow-gold">
+                                <i class="ti ti-shield-check"></i>
+                                <span class="seal-txt" data-kz="Қанағаттанбасаңыз — ақшаны қайтару кепілдігі" data-ru="Гарантия возврата денег, если не устроит результат">Гарантия возврата денег, если не устроит результат</span>
+                            </div>
+                            <div class="seal-item text-glow-mint">
+                                <i class="ti ti-certificate"></i>
+                                <span class="seal-txt" data-kz="4+ жыл тәжірибе | МУИТ бакалавры" data-ru="4+ лет опыта | Fullstack разработчик | Бакалавр МУИТ">4+ лет опыта | Fullstack разработчик | Бакалавр МУИТ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Breathtaking Interactive Glassmorphic Booking Form -->
+                    <div class="cta-right-form">
+                        <div class="form-container-glass glass-panel anim-glow-border">
+                            <h3 class="form-header-title" data-kz="Консультацияға жазылу" data-ru="Заявка на консультацию">Заявка на консультацию</h3>
+                            <p class="form-subheader" data-kz="Деректерді толтырыңыз, мен сізбен тез арада хабарласамын" data-ru="Заполните форму, и я свяжусь с вами для обсуждения деталей">Заполните форму, и я свяжусь с вами для обсуждения деталей</p>
+                            
+                            <form id="consultation-form" novalidate>
+                                <!-- Name Input -->
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="client-name">
+                                        <i class="ti ti-user-circle"></i> <span data-kz="Атыңыз" data-ru="Ваше имя">Ваше имя</span>
+                                    </label>
+                                    <input type="text" id="client-name" name="name" class="form-input-custom" placeholder="Дамир" required>
+                                    <span class="field-error-msg" data-kz="Атыңызды енгізіңіз" data-ru="Пожалуйста, введите имя">Пожалуйста, введите имя</span>
+                                </div>
+
+                                <!-- Phone Input -->
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="client-phone">
+                                        <i class="ti ti-phone-calling"></i> <span data-kz="Телефон нөмірі" data-ru="Номер телефона">Номер телефона</span>
+                                    </label>
+                                    <input type="tel" id="client-phone" name="phone" class="form-input-custom" placeholder="+7 (___) ___-__-__" required>
+                                    <span class="field-error-msg" data-kz="Телефон нөмірін дұрыс енгізіңіз" data-ru="Введите корректный номер телефона">Введите корректный номер телефона</span>
+                                </div>
+
+                                <!-- Tariff Selector Dropdown inside form -->
+                                <div class="form-group-custom">
+                                    <label class="form-label-custom" for="selected-tariff-input">
+                                        <i class="ti ti-packages"></i> <span data-kz="Қызықтыратын тариф" data-ru="Интересующий тариф">Интересующий тариф</span>
+                                    </label>
+                                    <select id="selected-tariff-input" name="tariff" class="form-input-custom">
+                                        <option value="none" data-kz="Әлі таңдамадым / Консультация" data-ru="Еще не выбрал / Нужна консультация">Еще не выбрал / Нужна консультация</option>
+                                        <option value="Start" data-kz="«Бастама» тариф (150 000 ₸)" data-ru="Тариф «Старт» (150 000 ₸)">Тариф «Старт» (150 000 ₸)</option>
+                                        <option value="Business" data-kz="«Бизнес» тариф (250 000 ₸)" data-ru="Тариф «Бизнес» (250 000 ₸)">Тариф «Бизнес» (250 000 ₸)</option>
+                                        <option value="Premium" data-kz="«Премиум» тариф (350 000 ₸)" data-ru="Тариф «Премиум» (350 000 ₸)">Тариф «Премиум» (350 000 ₸)</option>
+                                    </select>
+                                </div>
+
+                                <!-- Submit Button with Gold Pulsing animation -->
+                                <button type="submit" class="submit-form-btn glow-gold-btn">
+                                    <i class="ti ti-send"></i>
+                                    <span data-kz="Консультация алу" data-ru="Записаться на консультацию">Записаться на консультацию</span>
+                                </button>
+                            </form>
+
+                            <!-- Success state container (Hidden by default, shown by JS with dynamic animations) -->
+                            <div class="form-success-container glass-panel">
+                                <div class="success-checkmark-wrapper">
+                                    <svg class="checkmark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                        <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                                    </svg>
+                                </div>
+                                <h3 class="success-title text-glow-mint" data-kz="Сәтті жіберілді!" data-ru="Успешно отправлено!">Успешно отправлено!</h3>
+                                <p class="success-desc" data-kz="Рахмет! Мен сізбен 24 сағат ішінде хабарласамын." data-ru="Спасибо! Я свяжусь с вами в течение ближайшего времени.">Спасибо! Я свяжусь с вами в течение ближайшего времени.</p>
+                                <button class="close-success-btn glass-btn" data-kz="Жабу" data-ru="Закрыть">Закрыть</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Dialog / Modal for GitHub/External link warning -->
+    <div id="github-modal" class="modal-overlay">
+        <div class="modal-window glass-panel anim-glow-border">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="ti ti-brand-github icon-mint"></i> GitHub Portfolio</h3>
+                <button class="close-modal-btn"><i class="ti ti-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <p data-kz="Дамир Алпысбаевтың GitHub профиліне өтуге дайынсыз ба? Онда сіз нақты код мысалдарымен және коммерциялық жобалардың қоймаларымен таныса аласыз." data-ru="Вы действительно хотите перейти на профиль Дамира Алпысбаева на GitHub? Там вы сможете изучить примеры его чистого кода и репозитории.">
+                    Вы действительно хотите перейти на профиль Дамира Алпысбаева на GitHub? Там вы сможете изучить примеры его чистого кода и репозитории.
+                </p>
+                <div class="modal-actions-row">
+                    <button class="modal-btn-secondary close-modal-btn" data-kz="Қалу" data-ru="Отмена">Отмена</button>
+                    <a href="https://github.com/Daemir" target="_blank" id="confirm-github-btn" class="modal-btn-primary glow-gold-btn">
+                        <span data-kz="Өту" data-ru="Перейти">Перейти</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core App logic scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
